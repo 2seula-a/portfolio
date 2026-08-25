@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notive</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="header">
+
+    <h1 class="logo">Notive</h1>
+
+    <!-- 모바일 -->
+    <button
+      type="button"
+      class="menu-btn"
+      id="menuBtn"
+    >
+      ☰
+    </button>
+
+    <nav class="nav" id="nav">
+
+      <button
+        type="button"
+        class="nav-btn active"
+        data-page="dashboard"
+      >
+        대시보드
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="todo"
+      >
+        할 일 관리
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="record"
+      >
+        학습 기록
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="goal"
+      >
+        학습 목표
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- =========================
+         01 대시보드
+    ========================== -->
+    <section
+      class="page active"
+      id="dashboard"
+    >
+
+      <div class="summary-grid">
+
+        <article class="card">
+
+          <p class="card-title">
+            이번 주 학습 시간
+          </p>
+
+          <strong class="data">
+            8시간 30분
+          </strong>
+
+          <p class="caption">
+            지난 주 7시간 20분
+            <span class="success">
+              ▲1시간 10분
+            </span>
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <p class="card-title">
+            주간 할 일 완료율
+          </p>
+
+          <strong class="data">
+            75%
+          </strong>
+
+          <p class="caption">
+            지난 주 62%
+            <span class="success">
+              ▲13%
+            </span>
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <p class="card-title">
+            계획 대비 실제 학습 요약
+          </p>
+
+          <strong class="data">
+            80%
+          </strong>
+
+          <p class="caption">
+            계획 10h / 실제 8h
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <p class="card-title">
+            목표 진행률(전체 평균)
+          </p>
+
+          <strong class="data">
+            60%
+          </strong>
+
+          <p class="caption">
+            지난 주 54%
+            <span class="success">
+              ▲6%
+            </span>
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <div class="dashboard-detail">
+
+        <!-- 진행중 목표 -->
+        <article class="card">
+
+          <h2 class="section-title">
+            진행중인 목표
+          </h2>
+
+          <div class="goal-row">
+
+            <span>
+              웹디자인 기능사 실기 합격
+            </span>
+
+            <progress
+              value="60"
+              max="100"
+            ></progress>
+
+            <strong>60%</strong>
+
+          </div>
+
+
+          <div class="goal-row">
+
+            <span>
+              정보처리기사 합격
+            </span>
+
+            <progress
+              value="50"
+              max="100"
+            ></progress>
+
+            <strong>50%</strong>
+
+          </div>
+
+
+          <div class="goal-row">
+
+            <span>
+              영어 회화 실력 향상
+            </span>
+
+            <progress
+              value="30"
+              max="100"
+            ></progress>
+
+            <strong>30%</strong>
+
+          </div>
+
+        </article>
+
+
+        <!-- 계획 vs 실제 -->
+        <article class="card">
+
+          <h2 class="section-title">
+            계획 시간 vs 실제 학습 시간
+          </h2>
+
+          <div class="study-bar">
+
+            <span>
+              계획 10시간
+            </span>
+
+            <progress
+              value="10"
+              max="10"
+            ></progress>
+
+          </div>
+
+
+          <div class="study-bar">
+
+            <span>
+              실제 8시간
+            </span>
+
+            <progress
+              value="8"
+              max="10"
+            ></progress>
+
+          </div>
+
+          <strong class="big-rate">
+            80%
+          </strong>
+
+          <p class="rate-caption">
+            계획 대비 실적
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         02 할 일 관리
+    ========================== -->
+    <section
+      class="page"
+      id="todo"
+    >
+
+      <div class="page-head">
+
+        <h2>오늘의 할 일</h2>
+
+        <button
+          type="button"
+          class="btn primary"
+          id="openTodoModal"
+        >
+          + 할 일 추가
+        </button>
+
+      </div>
+
+
+      <div class="tabs">
+
+        <button
+          type="button"
+          class="tab active"
+          data-tab="all"
+        >
+          전체
+        </button>
+
+        <button
+          type="button"
+          class="tab"
+          data-tab="doing"
+        >
+          진행중
+        </button>
+
+        <button
+          type="button"
+          class="tab"
+          data-tab="done"
+        >
+          완료
+        </button>
+
+      </div>
+
+
+      <div class="todo-list">
+
+        <div
+          class="todo-row"
+          data-status="done"
+        >
+
+          <input
+            type="checkbox"
+            checked
+          >
+
+          <span class="todo-title">
+            HTML CSS 반응형 복습
+          </span>
+
+          <span class="goal-tag">
+            웹디자인 기능사 실기 합격
+          </span>
+
+          <span class="todo-time">
+            2시간 10분
+          </span>
+
+          <button
+            type="button"
+            class="detail-btn"
+          >
+            ›
+          </button>
+
+        </div>
+
+
+        <div
+          class="todo-row"
+          data-status="doing"
+        >
+
+          <input type="checkbox">
+
+          <span class="todo-title">
+            피그마 레이아웃 실습
+          </span>
+
+          <span class="goal-tag">
+            웹디자인 기능사 실기 합격
+          </span>
+
+          <span class="todo-time">
+            1시간 50분
+          </span>
+
+          <button
+            type="button"
+            class="detail-btn"
+          >
+            ›
+          </button>
+
+        </div>
+
+
+        <div
+          class="todo-row"
+          data-status="doing"
+        >
+
+          <input type="checkbox">
+
+          <span class="todo-title">
+            정보처리기사 기출 문제 풀이
+          </span>
+
+          <span class="goal-tag">
+            정보처리기사 합격
+          </span>
+
+          <span class="todo-time">
+            2시간 30분
+          </span>
+
+          <button
+            type="button"
+            class="detail-btn"
+          >
+            ›
+          </button>
+
+        </div>
+
+
+        <div
+          class="todo-row"
+          data-status="doing"
+        >
+
+          <input type="checkbox">
+
+          <span class="todo-title">
+            영어 단어 암기
+          </span>
+
+          <span class="goal-tag">
+            연결 안 함
+          </span>
+
+          <span class="todo-time">
+            30분
+          </span>
+
+          <button
+            type="button"
+            class="detail-btn"
+          >
+            ›
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         03 학습 기록
+    ========================== -->
+    <section
+      class="page"
+      id="record"
+    >
+
+      <h2 class="page-title">
+        학습 기록 작성
+      </h2>
+
+
+      <form
+        class="record-grid"
+        id="recordForm"
+      >
+
+
+        <!-- 기본 정보 -->
+        <div class="record-group">
+
+          <h3>
+            01. 기본 정보
+          </h3>
+
+          <label>
+            날짜
+
+            <input
+              type="date"
+              value="2026-08-19"
+            >
+          </label>
+
+
+          <label>
+            과목 / 주제
+
+            <input
+              type="text"
+              placeholder="과목 또는 주제를 입력하세요"
+            >
+          </label>
+
+
+          <div class="time-group">
+
+            <p>계획 시간</p>
+
+            <div class="time-inputs">
+
+              <input
+                type="number"
+                min="0"
+                placeholder="0"
+              >
+
+              <span>시간</span>
+
+              <input
+                type="number"
+                min="0"
+                max="59"
+                placeholder="0"
+              >
+
+              <span>분</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="time-group">
+
+            <p>실제 학습 시간</p>
+
+            <div class="time-inputs">
+
+              <input
+                type="number"
+                min="0"
+                placeholder="0"
+              >
+
+              <span>시간</span>
+
+              <input
+                type="number"
+                min="0"
+                max="59"
+                placeholder="0"
+              >
+
+              <span>분</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 학습 내용 -->
+        <div class="record-group">
+
+          <h3>
+            02. 학습 내용
+          </h3>
+
+
+          <!-- 오늘 학습한 내용 -->
+          <div
+            class="editable-block"
+            data-editable
+          >
+
+            <label>
+              학습한 내용
+
+              <textarea
+                placeholder="오늘 학습한 내용을 입력하세요."
+              ></textarea>
+
+            </label>
+
+
+            <!-- 처음에는 저장만 -->
+            <div class="edit-actions">
+
+              <button
+                type="button"
+                class="btn primary save-record-btn"
+              >
+                저장
+              </button>
+
+
+              <!-- 저장 후 등장 -->
+              <button
+                type="button"
+                class="btn danger delete-record-btn hidden"
+              >
+                삭제
+              </button>
+
+              <button
+                type="button"
+                class="btn primary edit-record-btn hidden"
+              >
+                수정
+              </button>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- 어려웠던 점 -->
+          <div
+            class="editable-block"
+            data-editable
+          >
+
+            <label>
+              어려웠던 점
+
+              <textarea
+                placeholder="어려웠던 부분이나 이해가 잘 안 된 내용을 입력하세요."
+              ></textarea>
+
+            </label>
+
+
+            <div class="edit-actions">
+
+              <button
+                type="button"
+                class="btn primary save-record-btn"
+              >
+                저장
+              </button>
+
+              <button
+                type="button"
+                class="btn danger delete-record-btn hidden"
+              >
+                삭제
+              </button>
+
+              <button
+                type="button"
+                class="btn primary edit-record-btn hidden"
+              >
+                수정
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 다음 계획 -->
+        <div class="record-group">
+
+          <h3>
+            03. 다음 계획
+          </h3>
+
+
+          <div
+            class="editable-block"
+            data-editable
+          >
+
+            <label>
+              다음 학습 계획
+
+              <textarea
+                placeholder="예) 1시간 복습, 문제풀이"
+              ></textarea>
+
+            </label>
+
+
+            <div class="edit-actions">
+
+              <button
+                type="button"
+                class="btn primary save-record-btn"
+              >
+                저장
+              </button>
+
+              <button
+                type="button"
+                class="btn danger delete-record-btn hidden"
+              >
+                삭제
+              </button>
+
+              <button
+                type="button"
+                class="btn primary edit-record-btn hidden"
+              >
+                수정
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <label>
+            관련 할 일 (선택)
+
+            <select>
+
+              <option>
+                피그마 반응형 복습
+              </option>
+
+              <option>
+                HTML CSS 반응형 복습
+              </option>
+
+              <option>
+                연결 안 함
+              </option>
+
+            </select>
+
+          </label>
+
+        </div>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- =========================
+         04 학습 목표
+    ========================== -->
+    <section
+      class="page"
+      id="goal"
+    >
+
+      <div class="page-head">
+
+        <h2>
+          나의 학습 목표
+        </h2>
+
+        <button
+          type="button"
+          class="btn primary"
+          id="openGoalModal"
+        >
+          + 목표 추가
+        </button>
+
+      </div>
+
+
+      <div class="goal-list">
+
+
+        <article class="goal-card">
+
+          <div>
+
+            <strong>
+              웹디자인 기능사 실기 합격
+            </strong>
+
+            <p>
+              2026.08.01 ~ 2026.08.31
+            </p>
+
+          </div>
+
+
+          <progress
+            value="60"
+            max="100"
+          ></progress>
+
+          <strong>
+            60%
+          </strong>
+
+        </article>
+
+
+        <article class="goal-card">
+
+          <div>
+
+            <strong>
+              정보처리기사 합격
+            </strong>
+
+            <p>
+              2026.10.01 ~ 2026.12.31
+            </p>
+
+          </div>
+
+
+          <progress
+            value="50"
+            max="100"
+          ></progress>
+
+          <strong>
+            50%
+          </strong>
+
+        </article>
+
+
+        <article class="goal-card">
+
+          <div>
+
+            <strong>
+              영어 회화 실력 향상
+            </strong>
+
+            <p>
+              2026.09.01 ~ 2026.11.30
+            </p>
+
+          </div>
+
+
+          <progress
+            value="30"
+            max="100"
+          ></progress>
+
+          <strong>
+            30%
+          </strong>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       할 일 추가 MODAL
+  ========================== -->
+  <div
+    class="modal-bg"
+    id="todoModal"
+  >
+
+    <div class="modal">
+
+      <button
+        type="button"
+        class="close"
+        data-close="todoModal"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        할 일 추가
+      </h2>
+
+
+      <label>
+        제목
+
+        <input
+          id="todoTitle"
+          type="text"
+          placeholder="할 일을 입력하세요"
+        >
+      </label>
+
+
+      <p
+        class="error"
+        id="todoError"
+      >
+        제목을 입력해주세요.
+      </p>
+
+
+      <label>
+        연결할 목표 (선택)
+
+        <select>
+
+          <option>
+            웹디자인 기능사 실기 합격
+          </option>
+
+          <option>
+            정보처리기사 합격
+          </option>
+
+          <option>
+            영어 회화 실력 향상
+          </option>
+
+          <option>
+            연결 안 함
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <div class="modal-buttons">
+
+        <button
+          type="button"
+          class="btn secondary"
+          data-close="todoModal"
+        >
+          취소
+        </button>
+
+
+        <button
+          type="button"
+          class="btn primary"
+          id="addTodo"
+        >
+          추가하기
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       목표 추가 MODAL
+  ========================== -->
+  <div
+    class="modal-bg"
+    id="goalModal"
+  >
+
+    <div class="modal">
+
+      <button
+        type="button"
+        class="close"
+        data-close="goalModal"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        목표 추가
+      </h2>
+
+
+      <label>
+        목표 정하기
+
+        <input
+          id="goalTitle"
+          type="text"
+          placeholder="예) 주 6회 헬스가기"
+        >
+      </label>
+
+
+      <p
+        class="error"
+        id="goalError"
+      >
+        목표 정하기는 필수 입력 항목입니다.
+      </p>
+
+
+      <div class="date-row">
+
+        <label>
+          시작일
+          <input
+            id="startDate"
+            type="date"
+          >
+        </label>
+
+        <span>~</span>
+
+        <label>
+          종료일
+          <input
+            id="endDate"
+            type="date"
+          >
+        </label>
+
+      </div>
+
+
+      <p
+        class="error"
+        id="dateError"
+      >
+        기간을 입력해주세요.
+      </p>
+
+
+      <label>
+        목표 설명 (선택)
+
+        <textarea
+          placeholder="목표에 대한 간단한 설명을 입력하세요."
+        ></textarea>
+
+      </label>
+
+
+      <div class="modal-buttons">
+
+        <button
+          type="button"
+          class="btn secondary"
+          data-close="goalModal"
+        >
+          취소
+        </button>
+
+
+        <button
+          type="button"
+          class="btn primary"
+          id="addGoal"
+        >
+          등록하기
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
