@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Archive</title>
+  <link rel="stylesheet" href="./my-archive.css">
+</head>
+<body>
+  <section class="favorites">
+  <div class="favorites-inner">
+    <h2>My Favorites📚🎥</h2>
+    <p class="section-description">
+      좋아하는 이야기들을 모아두었습니다.
+    </p>
+    <!-- 카테고리 버튼 -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="book">BOOK</button>
+      <button class="filter-btn" data-filter="ott">MOVIE & SERIES</button>
+    </div>
+    <!-- 콘텐츠 카드 -->
+    <div class="favorite-list">
+      <article class="favorite-card" data-category="book">
+        <img src="110post.jpg" alt="사서함 110호의 우편물 책 표지" class="card-image">
+        <div class="card-text">
+          <span>BOOK</span>
+          <h3>사서함 110호의 우편물</h3>
+          <p>이도우</p>
+          <p>네 사랑이 무사하기를, 내 사랑도 무사하니까</p>
+          <strong>★★★★★</strong>
+        </div>
+      </article>
+      <article class="favorite-card" data-category="ott">
+        <img src="coda3.jpg" alt="코다 포스터" class="card-image">
+        <div class="card-text">
+          <span>MOVIE</span>
+          <h3>코다</h3>
+          <p>가장 조용한 세상에서 시작된 여름의 노래</p>
+          <strong>★★★★★</strong>
+        </div>
+      </article>
+      <article class="favorite-card" data-category="ott">
+        <img src="Bailey.jpg" alt="베일리어게인 포스터" class="card-image">
+        <div class="card-text">
+          <span>MOVIE</span>
+          <h3>베일리 어게인</h3>
+          <p>네 번의 삶, 한 번의 사랑</p>
+          <strong>★★★★★</strong>
+        </div>
+      </article>
+      <article class="favorite-card" data-category="ott">
+        <img src="911.png" alt="911 포스터" class="card-image">
+        <div class="card-text">
+          <span>SERIES</span>
+          <h3>9-1-1</h3>
+          <p>인간에 대한 사랑과 우정은 결국 가장 힘든 순간에도 서로의 곁을 지켜주는 마음이다.</p>
+          <strong>★★★★★</strong>
+        </div>
+      </article>
+      <article class="favorite-card" data-category="book">
+        <img src="blue.jpg" alt="천개의 파랑 책 표지" class="card-image">
+        <div class="card-text">
+          <span>BOOK</span>
+          <h3>천개의 파랑</h3>
+          <p>천선란</p>
+          <p>투데이, 행복한가요? 그럼 저도 행복한 거예요.</p>
+          <strong>★★★★★</strong>
+        </div>
+      </article>
+      <article class="favorite-card" data-category="book">
+        <img src="last.jpg" alt="마지막증명 책 표지" class="card-image">
+        <div class="card-text">
+          <span>BOOK</span>
+          <h3>마지막 증명</h3>
+          <p>이하진</p>
+          <p>그러니 저도 빛을 보낼게요.</p>
+          <strong>★★★★★</strong>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- 이미지 크게보기 모달 -->
+<div class="image-modal">
+  <img class="modal-image" src="" alt="">
+</div>
+<script src="./my-archive.js"></script>
+</body>
+</html>

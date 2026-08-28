@@ -23,6 +23,19 @@
   --shadow-header: 0 1px 12px rgba(15, 23, 42, 0.05);
 }
 
+:root[data-theme='dark'] {
+  --color-primary: #60a5fa;
+  --color-primary-dark: #93c5fd;
+  --color-heading: #f8fafc;
+  --color-text: #cbd5e1;
+  --color-muted: #94a3b8;
+  --color-border: #334155;
+  --color-surface: #111827;
+  --color-white: #1e293b;
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.28);
+  --shadow-header: 0 1px 16px rgba(0, 0, 0, 0.24);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -43,6 +56,7 @@ body {
   background-color: var(--color-white);
   font-size: 1rem;
   line-height: 1.7;
+  transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 a {
@@ -224,6 +238,31 @@ button:active,
   display: none;
 }
 
+.theme-toggle {
+  flex: 0 0 auto;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-heading);
+  background-color: var(--color-surface);
+  box-shadow: none;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+  box-shadow: none;
+  transform: rotate(12deg);
+}
+
+.theme-toggle__icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
 .header__link {
   position: relative;
   display: inline-flex;
@@ -300,6 +339,38 @@ section,
 .hero {
   min-height: calc(100vh - 76px);
   background: linear-gradient(135deg, #ffffff 55%, #eff6ff 100%);
+}
+
+:root[data-theme='dark'] .header {
+  border-bottom-color: rgba(51, 65, 85, 0.85);
+  background-color: rgba(15, 23, 42, 0.94);
+}
+
+:root[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, #0f172a 55%, #172554 100%);
+}
+
+:root[data-theme='dark'] .hero__image-wrap {
+  background-color: #172554;
+}
+
+:root[data-theme='dark'] .skill-card__track {
+  background-color: #334155;
+}
+
+:root[data-theme='dark'] .project-card__technologies li {
+  color: #bfdbfe;
+  background-color: #172554;
+}
+
+:root[data-theme='dark'] .button--disabled,
+:root[data-theme='dark'] .button--disabled:hover {
+  background-color: #273449;
+}
+
+:root[data-theme='dark'] .contact-form__field input::placeholder,
+:root[data-theme='dark'] .contact-form__field textarea::placeholder {
+  color: #64748b;
 }
 
 .hero__inner {
@@ -890,7 +961,7 @@ a.contact__info-value:hover {
     flex-direction: column;
     width: 44px;
     min-height: 44px;
-    margin-left: auto;
+    margin-left: 10px;
     padding: 10px;
     gap: 5px;
     border: 1px solid var(--color-border);
@@ -898,6 +969,15 @@ a.contact__info-value:hover {
     color: var(--color-heading);
     background-color: var(--color-white);
     box-shadow: none;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    order: 1;
+  }
+
+  .header__menu-button {
+    order: 2;
   }
 
   .header__menu-button:hover {
@@ -946,6 +1026,7 @@ a.contact__info-value:hover {
       max-height 0.25s ease,
       padding-top 0.25s ease,
       opacity 0.2s ease;
+    order: 3;
   }
 
   .header__nav--open {

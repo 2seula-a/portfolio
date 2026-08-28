@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seul_A's Home</title>
+  <link rel="icon" href="460704236895948563.jpeg">
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+    }
+    a{
+      text-decoration: none;
+    }
+    .header{
+      background-color: rgb(255, 245, 106);
+    }
+    .header-inner{
+      width: calc(100% - 40px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    .logo{
+      display: block;
+      margin-bottom: 20px;
+      color:green;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .navigation{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .navigation a{
+      padding: 12px;
+      color: black;
+      background-color: rgb(60, 189, 60);
+    }
+    .hero{
+      min-height: 500px;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        rgba(0,0,0,0.5) , 
+        rgba(0,0,0,0.2)
+        ), 
+        url("main.jpeg") 
+        center/cover;
+    }
+    .hero-content{
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: white;
+    }
+    .hero h1{
+      margin: 0 0 20px;
+      font-size: 36px;
+    }
+    .hero p{
+      max-width: 600px;
+      margin-bottom: 30px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .button{
+      display: inline-block;
+      padding: 14px 24px;
+      color: green;
+      background: rgb(255, 245, 106);
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .service-section{
+      width: calc(100% - 40px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 70px 0;
+    }
+    .service-section h2{
+      margin: 0 0 30px;
+      text-align: center;
+      font-size: 32px;
+    }
+    .service-list{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .service-card{
+      overflow: hidden;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background-color: white;
+    }
+    .service-card img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .service-content{
+      padding: 20px;
+    }
+    .service-content h3{
+      margin-top: 0;
+      font-size: 24px;
+    }
+    .service-content p{
+      margin-top: 0;
+      line-height: 1.6;
+    }
+    .footer{
+      padding: 30px 20px;
+      color: green;
+      text-align: center;
+      background-color: rgb(255, 245, 106);
+    }
+    @media screen and (min-width:768px) {
+      .header-inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo{
+        margin-bottom: 0;
+      }
+      .navigation{
+        flex-direction: row;
+      }
+      .navigation a{
+        background-color: transparent;
+      }
+      hero h1{
+        font-size: 48px;
+      }
+      .service-list{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media screen and (min-width: 1024px){
+      .hero{
+        min-height: 650px;
+      }
+      .hero h1{
+        font-size: 60px;
+      }
+      .service-list{
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">MY SITE</a>
+      <nav class="navigation">
+        <a href="#">홈</a>
+        <a href="#">소개</a>
+        <a href="#">서비스</a>
+        <a href="#">문의</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>반응형 웹 디자인</h1>
+        <p>
+          모바일, 태블릿, 데스크탑 화면에 맞게 레이아웃이 변경되는 웹페이지입니다.
+        </p>
+        <a href="#" class="button">자세히 보기</a>
+      </div>
+    </section>
+    <section class="service-section">
+      <h2>주요 서비스</h2>
+      <div class="service-list">
+        <article class="service-card">
+          <img src="https://picsum.photos/id/1005/600/400" alt="웹 기획">
+          <div class="service-content">
+            <h3>웹 기획</h3>
+            <p>
+              사용자의 요구와 목적에 맞는 웹사이트 구조를 기획합니다.
+            </p>
+          </div>
+        </article>
+        <article class="service-card">
+          <img src="https://picsum.photos/id/40/600/400" alt="웹 디자인">
+          <div class="service-content">
+            <h3>웹 디자인</h3>
+            <p>
+              다양한 화면 크기에 맞는 웹 사이트 화면을 디자인합니다.
+            </p>
+          </div>
+        </article>
+        <article class="service-card">
+          <img src="https://picsum.photos/id/20/600/400" alt="웹 개발">
+          <div class="service-content">
+            <h3>웹 개발</h3>
+            <p>
+              html과 css를 사용하여 반응형 웹 사이트를 제작합니다.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>copyright 2026 MY SITE</p>
+  </footer>
+</body>
+</html>

@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
+
+const getPublicAssetPath = (fileName) => `${import.meta.env.BASE_URL}${fileName}`
 
 const skills = [
   {
@@ -53,27 +55,29 @@ const skills = [
 
 const projects = [
   {
-    title: 'React Portfolio',
-    description: 'React 컴포넌트로 구성한 반응형 개인 포트폴리오 웹사이트입니다.',
-    image: '/project-react-portfolio.png',
-    skills: ['React', 'Vite', 'CSS'],
-    demo: null,
+    title: '반응형 웹페이지',
+    description: 'HTML, CSS, JavaScript를 활용하여 제작한 반응형 웹페이지입니다.',
+    image: getPublicAssetPath('projects/0816/652036852343956869.jpeg'),
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    demo: getPublicAssetPath('projects/0816/0816.html'),
+    demoLabel: '사이트 보기',
     github: null,
   },
   {
-    title: 'Shopping Web App',
-    description: '상품 탐색과 장바구니 흐름을 구현한 쇼핑 웹 애플리케이션입니다.',
-    image: '/project-shopping-app.png',
-    skills: ['React', 'JavaScript', 'CSS'],
-    demo: null,
+    title: 'Notive UI/UX Design',
+    description: '학습 목표, 할 일, 학습 기록을 통합 관리하는 반응형 웹앱 UI/UX 프로젝트입니다.',
+    image: getPublicAssetPath('projects/figma-project/notive-card.png'),
+    skills: ['Figma', 'UI·UX', 'Responsive'],
+    demo: getPublicAssetPath('projects/figma-project/index.html'),
     github: null,
   },
   {
-    title: 'Movie Search App',
-    description: '검색어를 이용해 원하는 영화 정보를 찾아볼 수 있는 웹 앱입니다.',
-    image: '/project-movie-search.png',
-    skills: ['React', 'API', 'Vite'],
-    demo: null,
+    title: 'My Archive',
+    description: '책과 영화, 드라마를 통해 만난 좋아하는 이야기와 콘텐츠 취향을 기록하는 개인 아카이브 웹사이트입니다.',
+    image: getPublicAssetPath('projects/my-archive/archive-card.jpg'),
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    demo: getPublicAssetPath('projects/my-archive/archive.html'),
+    demoLabel: '사이트 보기',
     github: null,
   },
 ]
@@ -101,6 +105,13 @@ const experiences = [
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme')
+
+    return savedTheme
+      ? savedTheme === 'dark'
+      : window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -126,6 +137,18 @@ function App() {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+  }
+
+  useLayoutEffect(() => {
+    const theme = isDarkMode ? 'dark' : 'light'
+
+    document.documentElement.dataset.theme = theme
+    document.documentElement.style.colorScheme = theme
+    localStorage.setItem('theme', theme)
+  }, [isDarkMode])
+
+  const toggleTheme = () => {
+    setIsDarkMode((previousTheme) => !previousTheme)
   }
 
   return (
@@ -161,6 +184,19 @@ function App() {
             <a className="header__link" href="#projects" onClick={closeMenu}>Projects</a>
             <a className="header__link" href="#contact" onClick={closeMenu}>Contact</a>
           </nav>
+
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={isDarkMode ? '라이트 모드로 전환' : '야간 모드로 전환'}
+            aria-pressed={isDarkMode}
+            title={isDarkMode ? '라이트 모드' : '야간 모드'}
+            onClick={toggleTheme}
+          >
+            <span className="theme-toggle__icon" aria-hidden="true">
+              {isDarkMode ? '☀' : '☾'}
+            </span>
+          </button>
         </div>
       </header>
 
@@ -193,7 +229,7 @@ function App() {
             <div className="hero__image-wrap">
               <img
                 className="hero__image"
-                src="/learning-profile.png"
+                src={getPublicAssetPath('learning-profile.png')}
                 alt="노트북으로 프론트엔드 개발을 공부하는 모습"
               />
             </div>
@@ -206,8 +242,7 @@ function App() {
               <p className="section__label">Introduction</p>
               <h2 className="section__title">ABOUT ME</h2>
               <p className="about__description">
-                새로운 기술을 배우고 실제 결과물로 구현하는 것을 좋아하는
-                프론트엔드 개발자입니다.
+                새로운 기술을 배우고, 직접 결과물로 만들어내는 것을 좋아하는 <br />프론트엔드 개발자입니다.
               </p>
               <p className="about__description">
                 UI/UX 디자인부터 React 기반 웹 개발까지 사용자 관점에서 고민하며
@@ -309,7 +344,7 @@ function App() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          프로젝트 보기
+                          {project.demoLabel ?? '프로젝트 보기'}
                         </a>
                       ) : (
                         <span
@@ -452,10 +487,10 @@ function App() {
             &copy; 2026 SEUL-A Portfolio. All Rights Reserved.
           </p>
 
-          <div className="footer__links" aria-label="연락처 링크">
+          <nav className="footer__links" aria-label="연락처 링크">
             <span aria-disabled="true">GitHub 준비 중</span>
             <a href="mailto:seula2025@gmail.com">Email</a>
-          </div>
+          </nav>
         </div>
       </footer>
     </div>
