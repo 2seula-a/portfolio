@@ -197,7 +197,8 @@
                 font-size: 60px;
             }
             .portfolio-list {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 384px));
+                justify-content: center;
             }
         }
         @media screen and (max-width: 767px) {
@@ -277,15 +278,7 @@
                             <p> 피그마 수업 중 실습과 제로 제작한 포스터입니다. </p>
                         </div>
                     </article>
-                <div class="portfolio-link">
-                    <article class="portfolio-card">
-                        <img src="https://picsum.photos/id/40/250/150" alt="제작물 3">
-                        <div class="portfolio-content">
-                            <h3>제작물 3</h3>
-                            <p> 세 번째 제작물입니다. </p>
-                        </div>
-                    </article>
-                </div>
+            </div>
         </section>
     </main>
     <footer class="footer">
