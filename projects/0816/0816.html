@@ -9,8 +9,8 @@
         * {box-sizing: border-box;}
         body {margin: 0;
             font-family: 'SUIT', sans-serif;
-            color: black;
-            background: linear-gradient(#8CC0EB, #DCECF7)}
+            color: rgb(63, 63, 63);
+            background: linear-gradient(hsl(326, 100%, 91%), #f3f7dc)}
         a {text-decoration: none;}
         .top {background-color: #FFF9D2;}
         .top-inner {width: calc(100% - 40px);
@@ -19,7 +19,7 @@
             padding: 20px 0;}
         .logo {display: block;
             margin-bottom: 20px;
-            color: #8CC0EB;
+            color: #eb8cc0;
             font-size: 26px;
             font-weight: bold;}
         .navigation {display: flex;
@@ -27,7 +27,7 @@
             gap: 20px;}
         .navigation a {padding: 12px;
             color: white;
-            background-color: #BFDDF0;
+            background-color: #eb8cc0;
             font-weight: bold;
             text-transform: uppercase;}
         .navigation span {color: #ebc48c;
@@ -44,7 +44,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 90px;
-            color: black;}
+            color: rgb(63, 63, 63);}
         .hero-text {
             flex: 1;
             white-space: nowrap;}
@@ -59,12 +59,12 @@
         .button {
             display: inline-block;
             padding: 14px 24px;
-            color: black;
+            color: grey;
             font-weight: bold;
             background-color: #FFEBCC;
             border-radius: 10px;
-            border: 2px solid #e7ddcc;
-            box-shadow: 0 4px 12px rgba(7, 18, 175, 0.55);}
+            border: 2px solid #eb8cc0;
+            box-shadow: 0 4px 12px rgba(175, 7, 29, 0.55);}
         .hero-image {
             flex: 0 0 700px;}
         .hero-image img {
@@ -89,8 +89,10 @@
             gap: 24px;}
         .portfolio-card {
             height: 100%;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
-            border: 2px solid #8CC0EB;
+            border: 2px solid #eb8c8c;
             border-radius: 12px;
             background-color: white;
             cursor: pointer;}
@@ -100,6 +102,9 @@
             height: 220px;
             object-fit: cover;}
         .portfolio-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             padding: 20px;}
         .portfolio-content h3 {
             margin-top: 0;
@@ -113,7 +118,7 @@
             font-weight: bold;
             text-align: center;
             background-color: #FFEBCC;
-            border-top: 2px solid #8CC0EB;}
+            border-top: 2px solid #eb8cc0;}
         .section-divider{
             width: 70%;
             height: 2px;
@@ -122,7 +127,7 @@
             background: linear-gradient(
             to right,
             transparent,
-            rgba(255, 255, 255, 0.8),
+            #f5b7d6cc,
             transparent);}
         .portfolio-link {
             display: block;
@@ -131,19 +136,53 @@
             text-decoration: none;
             cursor: pointer;}
         .portfolio-link:hover .portfolio-card,
-        .portfolio-link:focus-visible .portfolio-card {
+        .portfolio-link:focus-visible .portfolio-card,
+        .clickable-card:hover,
+        .clickable-card:focus-visible {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);}
-        .portfolio-link:focus-visible {
-            outline: 3px solid #4d91c6;
+        .portfolio-link:focus-visible,
+        .clickable-card:focus-visible {
+            outline: 3px solid #eb8cc0;
             outline-offset: 4px;
             border-radius: 12px;}
         .portfolio-card {
             overflow: hidden;
-            border: 2px solid #8CC0EB;
+            border: 2px solid #eb8cc0;
             border-radius: 12px;
             background-color: white;
             transition: transform 0.2s ease, box-shadow 0.2s ease;}
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 12px;}
+        .site-hint {
+            color: #9f477d;
+            font-size: 13px;
+            font-weight: bold;}
+        .plan-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            padding: 8px 13px;
+            border: 1px solid #eb8cc0;
+            border-radius: 8px;
+            color: hsl(0, 45%, 35%);
+            background-color: hsl(326, 100%, 96%);
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.2;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;}
+        .plan-button:hover {
+            background-color: hsl(0, 100%, 92%);}
+        .plan-button:focus-visible {
+            outline: 3px solid hsl(332, 51%, 54%);
+            outline-offset: 2px;}
         .dessert-poster {
             object-fit: contain !important;
             background-color: #f5f5f5;
@@ -177,7 +216,7 @@
             cursor: pointer;
             line-height: 1;}
         .close:hover {
-            color: #8CC0EB;}
+            color: #eb8cc0;}
         .popup-image {
             cursor: pointer;}
         @media screen and (min-width: 768px) {
@@ -193,7 +232,7 @@
             }
             .navigation a {
                 background-color: transparent;
-                color: #8CC0EB;
+                color:rgb(63, 63, 63)
             }
             .portfolio-list {
                 grid-template-columns: repeat(2, 1fr);
@@ -258,8 +297,8 @@
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 style="font-family: sans-serif;"> 이슬아의 작업물 </h1>
-                    <p style="font-family: 'SUIT', sans-serif;"> Figma와 VS Code로 다양한 디지털 경험을 만듭니다. </p>
+                    <h1 style="font-family: sans-serif;"> 개인 웹 프로젝트 </h1>
+                    <p style="font-family: 'SUIT', sans-serif;"> 기획부터 디자인, 개발까지 직접 구현한 웹 프로젝트를 소개합니다. </p>
                     <a href="javascript:void(0);" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=seula2025@gmail.com',
                             'gmailPopup', 'width=800,height=700,scrollbars=yes,resizable=yes');" class="button"> 메일문의하기 </a>
                 </div>
@@ -280,24 +319,28 @@
                         </div>
                     </article>
                 </a>
-                <a href="https://2seula-a.github.io/little-joys/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
-                    <article class="portfolio-card">
-                        <img src="https://2seula-a.github.io/little-joys/images/intro-background.png" alt="LITTLE JOYS 대표 이미지">
-                        <div class="portfolio-content">
-                            <h3>LITTLE JOYS</h3>
-                            <p>파스텔 컬러와 키치한 디자인 요소를 활용하고, React 기반의 스크랩 저장·삭제 기능을 구현했습니다.</p>
+                <article class="portfolio-card clickable-card" role="link" tabindex="0" data-site-url="https://2seula-a.github.io/little-joys/" aria-label="LITTLE JOYS 사이트 새 탭에서 보기">
+                    <img src="https://2seula-a.github.io/little-joys/images/intro-background.png" alt="LITTLE JOYS 대표 이미지">
+                    <div class="portfolio-content">
+                        <h3>LITTLE JOYS</h3>
+                        <p>파스텔 컬러와 키치한 디자인 요소를 활용하고, React 기반의 스크랩 저장·삭제 기능을 구현했습니다.</p>
+                        <div class="card-actions">
+                            <span class="site-hint" aria-hidden="true">사이트 보기 ↗</span>
+                            <a href="/portfolio/projects/0816/little-joys-plan.pdf" target="_blank" rel="noopener noreferrer" class="plan-button">기획서 보기</a>
                         </div>
-                    </article>
-                </a>
-                <a href="https://2seula-a.github.io/mailbox-110/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
-                    <article class="portfolio-card">
-                        <img src="110main.png" alt="사서함 110호의 우편물 대표 이미지" style="object-position: center 55%;">
-                        <div class="portfolio-content">
-                            <h3>사서함 110호의 우편물</h3>
-                            <p>도서의 분위기를 반영한 컬러와 타이포그래피를 적용하고, React로 책 소개형 웹페이지를 구현했습니다.</p>
+                    </div>
+                </article>
+                <article class="portfolio-card clickable-card" role="link" tabindex="0" data-site-url="https://2seula-a.github.io/mailbox-110/" aria-label="사서함 110호의 우편물 사이트 새 탭에서 보기">
+                    <img src="110main.png" alt="사서함 110호의 우편물 대표 이미지" style="object-position: center 55%;">
+                    <div class="portfolio-content">
+                        <h3>사서함 110호의 우편물</h3>
+                        <p>도서의 분위기를 반영한 컬러와 타이포그래피를 적용하고, React로 책 소개형 웹페이지를 구현했습니다.</p>
+                        <div class="card-actions">
+                            <span class="site-hint" aria-hidden="true">사이트 보기 ↗</span>
+                            <a href="/portfolio/projects/0816/mailbox-110-plan.pdf" target="_blank" rel="noopener noreferrer" class="plan-button">기획서 보기</a>
                         </div>
-                    </article>
-                </a>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -317,6 +360,23 @@
         function closeModal() {
             const modal = document.getElementById("imageModal");
             modal.style.display = "none";}
+
+        document.querySelectorAll(".clickable-card").forEach((card) => {
+            const openSite = () => window.open(card.dataset.siteUrl, "_blank", "noopener,noreferrer");
+
+            card.addEventListener("click", (event) => {
+                if (event.target.closest("a")) return;
+                openSite();
+            });
+
+            card.addEventListener("keydown", (event) => {
+                if (event.target.closest("a")) return;
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    openSite();
+                }
+            });
+        });
     </script>
 </body>
 </html>
