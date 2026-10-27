@@ -63,6 +63,18 @@
 
     </nav>
 
+    <div class="header-actions">
+      <button type="button" class="icon-btn theme-btn" id="themeBtn"
+        aria-label="다크모드로 전환" aria-pressed="false" title="다크모드">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+      <button type="button" class="icon-btn notification-btn" aria-label="알림" title="알림">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" />
+        </svg>
+      </button>
+    </div>
+
   </header>
 
 
@@ -77,6 +89,40 @@
       id="dashboard"
     >
 
+      <div class="dashboard-cards">
+        <article class="dashboard-card">
+          <div class="dashboard-card-head">
+            <h2>최근 학습 기록</h2>
+            <button type="button" class="more-btn" data-page-link="record">더보기 &gt;</button>
+          </div>
+          <div class="dashboard-row record-summary-row"><time datetime="2026-08-17">08.17</time><div><strong>정보처리기사 기출풀이</strong><small>계획 3시간 / 실제 2시간 40분</small></div><span class="rate-badge">87%</span></div>
+          <div class="dashboard-row record-summary-row"><time datetime="2026-08-18">08.18</time><div><strong>피그마 레이아웃 연습</strong><small>계획 2시간 / 실제 1시간 50분</small></div><span class="rate-badge">90%</span></div>
+          <div class="dashboard-row record-summary-row"><time datetime="2026-08-19">08.19</time><div><strong>HTML CSS 반응형 복습</strong><small>계획 2시간 30분 / 실제 2시간 10분</small></div><span class="rate-badge">80%</span></div>
+        </article>
+
+        <article class="dashboard-card">
+          <div class="dashboard-card-head">
+            <h2>오늘 해야 할 일</h2>
+            <button type="button" class="more-btn" data-page-link="todo">더보기 &gt;</button>
+          </div>
+          <div class="dashboard-row todo-summary-row"><input type="checkbox" checked aria-label="HTML CSS 반응형 복습 완료"><strong>HTML CSS 반응형 복습</strong><span class="status-badge doing">진행중</span><small>2시간 10분</small></div>
+          <div class="dashboard-row todo-summary-row"><input type="checkbox" aria-label="피그마 레이아웃 연습 완료"><strong>피그마 레이아웃 연습</strong><span class="status-badge doing">진행중</span><small>1시간 50분</small></div>
+          <div class="dashboard-row todo-summary-row"><input type="checkbox" aria-label="영단어 암기 완료"><strong>영단어 암기</strong><span class="status-badge planned">예정</span><small>30분</small></div>
+          <div class="dashboard-row todo-summary-row"><input type="checkbox" aria-label="정보처리기사 기출풀이 완료"><strong>정보처리기사 기출풀이</strong><span class="status-badge planned">예정</span><small>2시간 30분</small></div>
+        </article>
+
+        <article class="dashboard-card">
+          <div class="dashboard-card-head">
+            <h2>다가오는 목표 마감일</h2>
+            <button type="button" class="more-btn" data-page-link="goal">더보기 &gt;</button>
+          </div>
+          <div class="dashboard-row deadline-row"><span>D-13</span><div><strong>웹디자인 기능사 실기 합격</strong><small>2026.08.31 마감</small></div><b>D-13</b></div>
+          <div class="dashboard-row deadline-row"><span>D-73</span><div><strong>정보처리기사 합격</strong><small>2026.10.31 마감</small></div><b>D-73</b></div>
+          <div class="dashboard-row deadline-row"><span>D-103</span><div><strong>영어 회화 실력 향상</strong><small>2026.11.30 마감</small></div><b>D-103</b></div>
+        </article>
+      </div>
+
+      <div class="legacy-dashboard" hidden>
       <div class="summary-grid">
 
         <article class="card">
@@ -261,6 +307,7 @@
 
         </article>
 
+      </div>
       </div>
 
     </section>

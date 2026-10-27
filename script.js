@@ -757,3 +757,79 @@ editableBlocks.forEach(
 
   }
 );
+
+
+/* =========================
+   08 대시보드 바로가기
+========================= */
+
+const pageLinkButtons =
+  document.querySelectorAll('[data-page-link]');
+
+
+pageLinkButtons.forEach(function(button){
+
+  button.addEventListener('click', function(){
+
+    const pageName = this.dataset.pageLink;
+    const targetNavButton =
+      document.querySelector('[data-page="' + pageName + '"]');
+
+    if(targetNavButton){
+      targetNavButton.click();
+    }
+
+  });
+
+});
+
+
+/* =========================
+   09 라이트 / 다크모드
+========================= */
+
+const themeButton =
+  document.getElementById('themeBtn');
+
+const themeIcon =
+  themeButton.querySelector('.theme-icon');
+
+
+function setTheme(theme){
+
+  const isDark = theme === 'dark';
+
+  document.documentElement.dataset.theme = theme;
+  themeButton.setAttribute('aria-pressed', String(isDark));
+  themeButton.setAttribute(
+    'aria-label',
+    isDark ? '라이트모드로 전환' : '다크모드로 전환'
+  );
+  themeButton.title = isDark ? '라이트모드' : '다크모드';
+  themeIcon.textContent = isDark ? '☀' : '☾';
+  localStorage.setItem('notive-theme', theme);
+
+}
+
+
+const savedTheme =
+  localStorage.getItem('notive-theme');
+
+const initialTheme = savedTheme ||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light');
+
+setTheme(initialTheme);
+
+
+themeButton.addEventListener('click', function(){
+
+  const nextTheme =
+    document.documentElement.dataset.theme === 'dark'
+      ? 'light'
+      : 'dark';
+
+  setTheme(nextTheme);
+
+});

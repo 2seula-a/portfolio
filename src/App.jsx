@@ -5,106 +5,156 @@ const getPublicAssetPath = (fileName) => `${import.meta.env.BASE_URL}${fileName}
 const skills = [
   {
     name: 'HTML',
-    description: '시맨틱 마크업과 접근성을 고려한 구조를 작성합니다.',
-    level: 90,
-    className: 'html',
+    description: '시맨틱 구조를 작성하고, form·input·textarea 등을 활용한 기본 웹 페이지와 폼 화면을 구성할 수 있습니다.',
   },
   {
     name: 'CSS',
-    description: '반응형 레이아웃과 재사용 가능한 스타일을 구현합니다.',
-    level: 85,
-    className: 'css',
+    description: 'Flexbox를 활용해 레이아웃을 구성하고, 데스크톱·태블릿·모바일을 고려한 반응형 화면을 구현할 수 있습니다.',
   },
   {
     name: 'JavaScript',
-    description: '웹 페이지에 필요한 동작과 인터랙션을 개발합니다.',
-    level: 80,
-    className: 'javascript',
+    description: '클릭, 입력, 필터, 모달, 조건 처리 등 기본적인 웹 인터랙션을 구현할 수 있습니다.',
   },
   {
     name: 'React',
-    description: '컴포넌트 기반의 사용자 인터페이스를 제작합니다.',
-    level: 80,
-    className: 'react',
-  },
-  {
-    name: 'Vite',
-    description: '빠른 개발 환경을 구성하고 프로젝트를 빌드합니다.',
-    level: 75,
-    className: 'vite',
+    description: '컴포넌트를 구성하고 useState 기반 상태 관리, CRUD 기능, React Router를 활용한 페이지 이동을 구현할 수 있습니다.',
   },
   {
     name: 'Figma',
-    description: '화면 구조를 설계하고 UI 디자인을 제작합니다.',
-    level: 75,
-    className: 'figma',
+    description: '와이어프레임과 UI 시안을 제작하고, Auto Layout과 Component를 활용해 웹 디자인 화면을 구성할 수 있습니다.',
   },
   {
-    name: 'Git',
-    description: '변경 이력을 관리하며 안정적으로 협업합니다.',
-    level: 70,
-    className: 'git',
+    name: 'Git / GitHub',
+    description: '저장소 생성 및 기본 버전 관리를 할 수 있으며, GitHub Pages를 활용해 웹사이트를 배포할 수 있습니다.',
   },
   {
-    name: 'GitHub',
-    description: '코드를 공유하고 프로젝트 협업 과정을 관리합니다.',
-    level: 70,
-    className: 'github',
+    name: 'Vite',
+    description: 'React 프로젝트를 생성하고 개발 서버 실행, build, 배포 전 작업 흐름을 사용할 수 있습니다.',
+  },
+  {
+    name: 'Photoshop / Illustrator',
+    description: '웹 프로젝트에 필요한 이미지 편집, 배너 제작, 간단한 그래픽 소스 제작 및 수정 작업을 할 수 있습니다.',
   },
 ]
 
 const projects = [
   {
-    title: '반응형 웹페이지',
-    description: 'HTML, CSS, JavaScript를 활용하여 제작한 반응형 웹페이지입니다.',
-    image: getPublicAssetPath('projects/0816/652036852343956869.jpeg'),
-    skills: ['HTML', 'CSS', 'JavaScript'],
-    demo: getPublicAssetPath('projects/0816/0816.html'),
-    demoLabel: '사이트 보기',
-    github: null,
+    title: 'ChalFit',
+    type: 'Team Project',
+    status: 'In Progress',
+    description: 'AI 얼굴형 분석과 가상 피팅을 활용한 맞춤형 선글라스 쇼핑몰',
+    role: 'UI/UX 디자인 · 와이어프레임 · AI 콘텐츠 제작 · 프론트엔드 구현 참여',
+    image: getPublicAssetPath('projects/chalfit/chalfit-thumbnail.png'),
+    skills: ['Figma','React','Responsive'],
+    demo: null,
+    demoLabel: '프로젝트 보기',
+    figma: null,
+    hideGithub: true,
   },
   {
     title: 'Notive UI/UX Design',
+    type: 'Personal Project',
     description: '학습 목표, 할 일, 학습 기록을 통합 관리하는 반응형 웹앱 UI/UX 프로젝트입니다.',
     image: getPublicAssetPath('projects/figma-project/notive-card.png'),
     skills: ['Figma', 'UI·UX', 'Responsive'],
     demo: getPublicAssetPath('projects/figma-project/index.html'),
+    hideGithub: true,
+    figma: 'https://www.figma.com/design/690j5hwjbQgDM1NfCRsPGv/%EB%85%B8%ED%8B%B0%EB%B8%8C-%EB%B0%98%EC%9D%91%ED%98%95?node-id=1-1614&t=zts7a2xhcLiHLG8k-4'
+  },
+  {
+  title: '죽녹원 AI 숏폼',
+  type: 'Contest Project',
+  description:
+    '담양 죽녹원의 시간과 사람의 흔적을 주제로 AI 이미지와 영상 생성 기술을 활용해 제작한 숏폼 공모전 작품입니다.',
+  image: getPublicAssetPath('projects/videos/SCENE5-thumbnail.png'),
+  skills: ['AI Image', 'AI Video', 'CapCut'],
+  video: getPublicAssetPath('projects/videos/1019.mp4'),
+  hideGithub: true,
+  },
+  {
+    title: 'LIVI 텀블러',
+    type: 'AI Video Project',
+    description: 'AI 이미지와 영상 생성 도구를 활용해 제작한 텀블러 브랜드 숏폼 광고 영상',
+    image: getPublicAssetPath('projects/videos/livi-thumbnail.png'),
+    skills: ['AI Image', 'AI Video', 'CapCut'],
+    video: getPublicAssetPath('projects/videos/0903_최최종 (2).mp4'),
+    demo: null,
     github: null,
+    hideGithub: true,
+  },
+  {
+    title: '개인 웹 프로젝트',
+    type: 'Personal Web Project',
+    description: 'React와 CSS를 활용해 서로 다른 디자인 콘셉트로 제작한 개인 웹 프로젝트입니다.',
+    image: getPublicAssetPath('projects/0816/PersonalWeb.png'),
+    skills: ['React', 'CSS', 'JavaScript'],
+    demo: getPublicAssetPath('projects/0816/0816.html'),
+    demoLabel: '사이트 보기',
+    hideGithub: true,
   },
   {
     title: 'My Archive',
-    description: '책과 영화, 드라마를 통해 만난 좋아하는 이야기와 콘텐츠 취향을 기록하는 개인 아카이브 웹사이트입니다.',
+    type: 'Personal Project',
+    description: '책·영화·드라마를 카드형 UI로 구성하고, 카테고리 필터와 이미지 확대 기능을 구현한 반응형 웹사이트입니다.',
     image: getPublicAssetPath('projects/my-archive/archive-card.jpg'),
     skills: ['HTML', 'CSS', 'JavaScript'],
     demo: getPublicAssetPath('projects/my-archive/archive.html'),
     demoLabel: '사이트 보기',
-    github: null,
+    hideGithub: true,
   },
 ]
 
 const experiences = [
   {
-    year: '2026',
-    title: 'React Frontend Project',
-    description: 'React와 Vite를 활용한 웹 애플리케이션 제작',
+    year: '2026.09',
+    dateTime: '2026-09',
+    institution: 'MBC아카데미',
+    title: 'Project Experience',
+    learned: '개인 프로젝트 Notive를 기획하며 UI/UX 설계 과정을 익혔습니다.',
+    practice: '팀 프로젝트 ChalFit에서 협업과 피드백 반영, UI 수정 및 프론트엔드 구현을 경험하고 있습니다.',
     category: 'Project',
   },
   {
-    year: '2025',
-    title: 'UI/UX Design Project',
-    description: 'Figma를 활용한 웹앱 UI/UX 기획 및 디자인',
+    year: '2026.09',
+    dateTime: '2026-09',
+    institution: 'MBC아카데미',
+    title: 'React',
+    learned: 'Component, props, useState·useEffect와 map·filter·spread 문법을 학습했습니다.',
+    practice: 'Todo, Memo, Tag, Category, Bookmark, Comment CRUD와 React Router 페이지 이동을 실습했습니다.',
+    category: 'Development',
+  },
+  {
+    year: '2026.09',
+    dateTime: '2026-09',
+    institution: 'MBC아카데미',
+    title: 'JavaScript',
+    learned: '조건문, 반복문, 함수, 배열, 객체와 DOM·이벤트를 학습했습니다.',
+    practice: '모달, 필터와 입력 처리 등 기본 인터랙션을 구현했습니다.',
+    category: 'Development',
+  },
+  {
+    year: '2026.08',
+    dateTime: '2026-08',
+    institution: 'MBC아카데미',
+    title: 'Figma · UI/UX',
+    learned: '와이어프레임, Auto Layout, Component와 Prototype을 학습했습니다.',
+    practice: '웹·앱 화면을 설계하고 UI 디자인 시안을 제작했습니다.',
     category: 'Design',
   },
   {
-    year: '2024',
-    title: 'Web Publishing',
-    description: 'HTML, CSS, JavaScript 기반 반응형 웹 제작',
-    category: 'Education',
+    year: '2026.07',
+    dateTime: '2026-07',
+    institution: 'MBC아카데미',
+    title: 'HTML · CSS',
+    learned: '시맨틱 마크업, Flexbox, Grid와 반응형 레이아웃을 학습했습니다.',
+    practice: '폼과 카드 UI를 구성하고 반응형 웹페이지를 제작했습니다.',
+    category: 'Publishing',
   },
 ]
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeVideoProject, setActiveVideoProject] = useState(null)
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme')
 
@@ -146,6 +196,27 @@ function App() {
     document.documentElement.style.colorScheme = theme
     localStorage.setItem('theme', theme)
   }, [isDarkMode])
+
+  useLayoutEffect(() => {
+    if (!activeVideoProject) {
+      return undefined
+    }
+
+    const previousOverflow = document.body.style.overflow
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        setActiveVideoProject(null)
+      }
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [activeVideoProject])
 
   const toggleTheme = () => {
     setIsDarkMode((previousTheme) => !previousTheme)
@@ -206,14 +277,14 @@ function App() {
             <div className="hero__content">
               <p className="hero__greeting">안녕하세요.</p>
               <h1 className="hero__title">
-                사용자 경험을 고민하며 구현하는
-                <strong>Frontend Developer 이슬아입니다.</strong>
+                디자인과 구현의 연결을 고민하는
+                <strong>이슬아입니다.</strong>
               </h1>
 
               <p className="hero__description">
-                React와 JavaScript를 활용하여
+                웹디자인부터 반응형 퍼블리싱까지,
                 <br />
-                사용하기 편리하고 직관적인 웹 서비스를 만드는 것을 좋아합니다.
+                디자인을 실제 웹 화면으로 구현하는 웹디자이너 · 웹퍼블리셔를 목표로 합니다.
               </p>
 
               <div className="hero__actions">
@@ -239,14 +310,15 @@ function App() {
         <section className="section" id="about">
           <div className="container about__inner">
             <div className="about__content">
-              <p className="section__label">Introduction</p>
-              <h2 className="section__title">ABOUT ME</h2>
+              <p className="section__label">INTRODUCTION</p>
+              <h2 className="section__title">소개</h2>
               <p className="about__description">
-                새로운 기술을 배우고, 직접 결과물로 만들어내는 것을 좋아하는 <br />프론트엔드 개발자입니다.
+                Figma를 활용한 UI 디자인과 HTML·CSS 기반의 반응형 레이아웃 구현을
+                학습하며, 디자인 시안을 웹 화면으로 완성하는 과정을 익히고 있습니다.
               </p>
               <p className="about__description">
-                UI/UX 디자인부터 React 기반 웹 개발까지 사용자 관점에서 고민하며
-                작업합니다.
+                JavaScript와 React로 필요한 기능을 구현하고, 팀 프로젝트에서 피드백을
+                주고받으며 UI를 개선하는 경험을 쌓고 있습니다.
               </p>
             </div>
 
@@ -258,11 +330,11 @@ function App() {
                 </div>
                 <div className="about__item">
                   <dt>Position</dt>
-                  <dd>Frontend Developer</dd>
+                  <dd>웹디자이너 · 웹퍼블리셔</dd>
                 </div>
                 <div className="about__item">
                   <dt>Focus</dt>
-                  <dd>React / UI·UX / AI</dd>
+                  <dd>UI·UX / Web Publishing / AI</dd>
                 </div>
                 <div className="about__item">
                   <dt>Location</dt>
@@ -275,7 +347,7 @@ function App() {
 
         <section className="section section--alternate" id="skills">
           <div className="container">
-            <p className="section__label">Skills</p>
+            <p className="section__label">SKILLS</p>
             <h2 className="section__title">기술 스택</h2>
             <p className="section__description skills__description">
               웹 서비스를 만들 때 사용하는 주요 기술입니다.
@@ -286,21 +358,8 @@ function App() {
                 <article className="skill-card" key={skill.name}>
                   <div className="skill-card__header">
                     <h3 className="skill-card__title">{skill.name}</h3>
-                    <span className="skill-card__level">{skill.level}%</span>
                   </div>
                   <p className="skill-card__description">{skill.description}</p>
-                  <div
-                    className="skill-card__track"
-                    role="progressbar"
-                    aria-label={`${skill.name} 숙련도`}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow={skill.level}
-                  >
-                    <span
-                      className={`skill-card__progress skill-card__progress--${skill.className}`}
-                    />
-                  </div>
                 </article>
               ))}
             </div>
@@ -309,7 +368,7 @@ function App() {
 
         <section className="section" id="projects">
           <div className="container">
-            <p className="section__label">Projects</p>
+            <p className="section__label">PROJECTS</p>
             <h2 className="section__title">프로젝트</h2>
             <p className="section__description projects__description">
               직접 기획하고 구현한 주요 프로젝트입니다.
@@ -319,16 +378,37 @@ function App() {
               {projects.map((project) => (
                 <article className="project-card" key={project.title}>
                   <div className="project-card__image-wrap">
-                    <img
-                      className="project-card__image"
-                      src={project.image}
-                      alt={`${project.title} 프로젝트 화면`}
-                    />
+                    {project.image ? (
+                      <img
+                        className="project-card__image"
+                        src={project.image}
+                        alt={`${project.title} 프로젝트 화면`}
+                      />
+                    ) : (
+                      <div className="project-card__image-placeholder" aria-hidden="true">
+                        ChalFit
+                      </div>
+                    )}
                   </div>
 
                   <div className="project-card__content">
                     <h3 className="project-card__title">{project.title}</h3>
+                    <div className="project-card__badges" aria-label="프로젝트 유형 및 상태">
+                      <span className="project-card__badge">{project.type}</span>
+                      {project.status && (
+                        <span className="project-card__badge project-card__badge--status">
+                          {project.status}
+                        </span>
+                      )}
+                    </div>
                     <p className="project-card__description">{project.description}</p>
+
+                    {project.role && (
+                      <p className="project-card__role">
+                        <strong>담당 역할</strong>
+                        <span>{project.role}</span>
+                      </p>
+                    )}
 
                     <ul className="project-card__technologies" aria-label="사용 기술">
                       {project.skills.map((skill) => (
@@ -336,43 +416,71 @@ function App() {
                       ))}
                     </ul>
 
-                    <div className="project-card__actions">
-                      {project.demo ? (
-                        <a
-                          className="button button--primary"
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {project.demoLabel ?? '프로젝트 보기'}
-                        </a>
-                      ) : (
-                        <span
-                          className="button button--primary button--disabled"
-                          aria-disabled="true"
-                        >
-                          프로젝트 준비 중
-                        </span>
-                      )}
-
-                      {project.github ? (
-                        <a
-                          className="button button--secondary"
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          GitHub
-                        </a>
-                      ) : (
-                        <span
-                          className="button button--secondary button--disabled"
-                          aria-disabled="true"
-                        >
-                          GitHub 준비 중
-                        </span>
-                      )}
-                    </div>
+                    {!project.hideActions && (
+                      <div className="project-card__actions">
+                        {project.video ? (
+                          <button
+                            className="button button--primary"
+                            type="button"
+                            onClick={() => setActiveVideoProject(project)}
+                          >
+                            영상 보기
+                          </button>
+                        ) : project.demo ? (
+                          <a
+                            className="button button--primary"
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {project.demoLabel ?? '프로젝트 보기'}
+                          </a>
+                        ) : (
+                          <span
+                            className="button button--primary button--disabled"
+                            aria-disabled="true"
+                          >
+                            {project.demoLabel ?? '프로젝트 준비 중'}
+                          </span>
+                        )}
+                        {project.figma ? (
+                          <a
+                            className="button button--secondary"
+                            href={project.figma}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Figma 보기
+                          </a>
+                        ) : Object.hasOwn(project, 'figma') ? (
+                          <span
+                            className="button button--secondary button--disabled"
+                            aria-disabled="true"
+                          >
+                            Figma 보기
+                          </span>
+                        ) : null}
+                        {!project.hideGithub && (
+                          project.github ? (
+                            <a
+                              className="button button--secondary"
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              GitHub
+                            </a>
+                          ) : (
+                            <span
+                              className="button button--secondary button--disabled"
+                              aria-disabled="true"
+                            >
+                              GitHub 준비 중
+                            </span>
+                          )
+                        )}
+                      </div>
+                    )}
                   </div>
                 </article>
               ))}
@@ -380,27 +488,76 @@ function App() {
           </div>
         </section>
 
+        {activeVideoProject && (
+          <div
+            className="video-modal"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) {
+                setActiveVideoProject(null)
+              }
+            }}
+          >
+            <div
+              className="video-modal__dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="video-modal-title"
+            >
+              <div className="video-modal__header">
+                <h2 className="video-modal__title" id="video-modal-title">
+                  {activeVideoProject.title}
+                </h2>
+                <button
+                  className="video-modal__close"
+                  type="button"
+                  aria-label="영상 닫기"
+                  onClick={() => setActiveVideoProject(null)}
+                  autoFocus
+                >
+                  닫기
+                </button>
+              </div>
+              <video className="video-modal__video" controls playsInline preload="metadata">
+                <source src={activeVideoProject.video} type="video/mp4" />
+                브라우저에서 영상을 재생할 수 없습니다.
+              </video>
+            </div>
+          </div>
+        )}
+
         <section className="section section--alternate" id="experience">
           <div className="container">
-            <p className="section__label">Experience</p>
-            <h2 className="section__title">경험과 성장</h2>
+            <p className="section__label">LEARNING JOURNEY</p>
+            <h2 className="section__title">배움과 성장</h2>
             <p className="section__description experience__description">
-              교육과 프로젝트를 통해 쌓아온 경험입니다.
+              배운 내용을 직접 디자인하고 구현하며 경험을 쌓아가고 있습니다.
             </p>
 
             <ol className="timeline">
               {experiences.map((experience) => (
-                <li className="timeline__item" key={experience.year}>
+                <li className="timeline__item" key={`${experience.year}-${experience.title}`}>
                   <div className="timeline__marker" aria-hidden="true" />
                   <article className="timeline__card">
                     <div className="timeline__meta">
-                      <time className="timeline__year" dateTime={experience.year}>
+                      <time className="timeline__year" dateTime={experience.dateTime}>
                         {experience.year}
                       </time>
+                    </div>
+                    <p className="timeline__institution">{experience.institution}</p>
+                    <div className="timeline__heading">
+                      <h3 className="timeline__title">{experience.title}</h3>
                       <span className="timeline__category">{experience.category}</span>
                     </div>
-                    <h3 className="timeline__title">{experience.title}</h3>
-                    <p className="timeline__text">{experience.description}</p>
+                    <div className="timeline__details">
+                      <p className="timeline__text">
+                        <strong>배운 내용</strong>
+                        <span>{experience.learned}</span>
+                      </p>
+                      <p className="timeline__text">
+                        <strong>실습/프로젝트</strong>
+                        <span>{experience.practice}</span>
+                      </p>
+                    </div>
                   </article>
                 </li>
               ))}
@@ -408,11 +565,31 @@ function App() {
           </div>
         </section>
 
+        <section className="section career-goal" id="career-goal">
+          <div className="container">
+            <div className="career-goal__content">
+              <p className="section__label">CAREER GOAL</p>
+              <h2 className="section__title">앞으로 만들어가고 싶은 방향</h2>
+              <div className="career-goal__body">
+                <p className="career-goal__text">
+                  디자인 의도를 이해하고, 이를 실제 웹 화면으로 구현할 수 있는{' '}
+                  <strong>웹디자이너·웹퍼블리셔</strong>로 성장하고 싶습니다.
+                </p>
+                <p className="career-goal__text">
+                  사용자 경험을 고려한 UI 디자인과 반응형 웹 구현 역량을 꾸준히
+                  발전시키며, 디자인과 개발 사이를 자연스럽게 연결할 수 있는 실무자가
+                  되는 것이 목표입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="section" id="contact">
           <div className="container contact__inner">
             <div className="contact__content">
-              <p className="section__label">Contact</p>
-              <h2 className="section__title">LET&apos;S WORK TOGETHER</h2>
+              <p className="section__label">CONTACT</p>
+              <h2 className="section__title">연락처</h2>
               <p className="section__description contact__description">
                 프로젝트와 협업에 관심이 있으시면 언제든지 연락해주세요.
               </p>
@@ -426,14 +603,32 @@ function App() {
                 </div>
                 <div className="contact__info-item">
                   <span className="contact__info-label">GitHub</span>
-                  <span className="contact__info-value">GitHub 주소를 추가해 주세요</span>
+                  <a
+                    className="contact__info-value"
+                    href="https://github.com/2seula-a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    github.com/2seula-a
+                  </a>
+                </div>
+                <div className="contact__info-item">
+                  <span className="contact__info-label">Resume</span>
+                  <span
+                    className="button button--secondary button--disabled contact__resume-button"
+                    aria-disabled="true"
+                  >
+                    이력서 준비 중
+                  </span>
                 </div>
               </address>
             </div>
 
             <form className="contact-form" onSubmit={handleFormSubmit}>
               <div className="contact-form__field">
-                <label htmlFor="contact-name">이름</label>
+                <label htmlFor="contact-name">
+                  이름<span className="contact-form__required" aria-hidden="true"> *</span>
+                </label>
                 <input
                   id="contact-name"
                   name="name"
@@ -447,21 +642,29 @@ function App() {
               </div>
 
               <div className="contact-form__field">
-                <label htmlFor="contact-email">이메일</label>
+                <label htmlFor="contact-email">
+                  이메일<span className="contact-form__required" aria-hidden="true"> *</span>
+                </label>
                 <input
                   id="contact-email"
                   name="email"
                   type="email"
                   autoComplete="email"
+                  aria-describedby="contact-email-error"
                   placeholder="이메일을 입력해 주세요"
                   required
                   value={formData.email}
                   onChange={handleFormChange}
                 />
+                <span className="contact-form__error" id="contact-email-error">
+                  올바른 이메일 형식으로 입력해 주세요.
+                </span>
               </div>
 
               <div className="contact-form__field">
-                <label htmlFor="contact-message">메시지</label>
+                <label htmlFor="contact-message">
+                  메시지<span className="contact-form__required" aria-hidden="true"> *</span>
+                </label>
                 <textarea
                   id="contact-message"
                   name="message"
@@ -473,9 +676,12 @@ function App() {
                 />
               </div>
 
-              <button className="contact-form__button" type="submit">
-                메시지 보내기
+              <button className="contact-form__button" type="submit" disabled>
+                문의 폼 준비 중
               </button>
+              <p className="contact-form__status">
+                현재 전송 기능을 준비하고 있습니다. 이메일로 연락해 주세요.
+              </p>
             </form>
           </div>
         </section>
