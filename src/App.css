@@ -615,6 +615,7 @@ section,
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: 1fr;
+  align-items: stretch;
   max-width: 1200px;
   margin: 0 auto;
   gap: 22px;
@@ -674,13 +675,13 @@ section,
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 22px 24px 24px;
+  padding: 20px 22px 22px;
 }
 
 .project-card__title {
   margin: 0 0 10px;
   color: var(--color-heading);
-  font-size: 1.35rem;
+  font-size: 1.4375rem;
   line-height: 1.3;
 }
 
@@ -688,7 +689,7 @@ section,
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 
 .project-card__badge {
@@ -697,7 +698,7 @@ section,
   border-radius: 999px;
   color: var(--color-primary);
   background-color: var(--color-surface);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -709,21 +710,21 @@ section,
 
 .project-card__description {
   display: -webkit-box;
-  overflow: hidden;
-  min-height: 3.2em;
-  margin: 0 0 14px;
+  overflow: visible;
+  min-height: auto;
+  margin: 0 0 12px;
   color: var(--color-muted);
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
 }
 
 .project-card__role {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: var(--color-muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   line-height: 1.55;
 }
 
@@ -731,22 +732,24 @@ section,
   display: block;
   margin-bottom: 4px;
   color: var(--color-heading);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 .project-card__role span {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  display: block;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+
+.project-card__role-line + .project-card__role-line {
+  margin-top: 2px;
 }
 
 .project-card__technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   padding: 0;
   list-style: none;
 }
@@ -756,7 +759,7 @@ section,
   border-radius: 999px;
   color: var(--color-primary-dark);
   background-color: var(--color-accent);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
   font-weight: 700;
 }
 
@@ -1359,10 +1362,6 @@ a.contact__info-value:hover {
   .projects__grid {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
-  }
-
-  .project-card__content {
-    padding: 24px;
   }
 
   .project-card__description {

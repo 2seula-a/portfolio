@@ -43,18 +43,23 @@ const projects = [
     type: 'Team Project',
     status: 'In Progress',
     description: 'AI 얼굴형 분석과 가상 피팅을 활용한 맞춤형 선글라스 쇼핑몰',
-    role: 'UI/UX 디자인 · 와이어프레임 · AI 콘텐츠 제작 · 프론트엔드 구현 참여',
+    roleLabel: '담당 역할 및 구현',
+    role: [
+      'UI/UX 디자인 · AI 콘텐츠 제작',
+      '반응형 UI · 회원/결제 · 좋아요/장바구니 등 기능 구현',
+    ],
     image: getPublicAssetPath('projects/chalfit/chalfit-thumbnail.png'),
-    skills: ['Figma','React','Responsive'],
+    skills: ['Figma', 'React', 'CSS'],
     demo: null,
     demoLabel: '프로젝트 보기',
-    figma: null,
+    figma: 'https://www.figma.com/design/MECClRXo7P17IzUJur7Iw3/%EC%A0%9C%EB%AA%A9-%EC%97%86%EC%9D%8C?node-id=169-13944&t=8bi81U8zYZIJNTt8-1',
     hideGithub: true,
   },
   {
     title: 'Notive UI/UX Design',
     type: 'Personal Project',
     description: '학습 목표, 할 일, 학습 기록을 통합 관리하는 반응형 웹앱 UI/UX 프로젝트입니다.',
+    implementation: '추후 작성',
     image: getPublicAssetPath('projects/figma-project/notive-card.png'),
     skills: ['Figma', 'UI·UX', 'Responsive'],
     demo: getPublicAssetPath('projects/figma-project/index.html'),
@@ -66,6 +71,7 @@ const projects = [
   type: 'Contest Project',
   description:
     '담양 죽녹원의 시간과 사람의 흔적을 주제로 AI 이미지와 영상 생성 기술을 활용해 제작한 숏폼 공모전 작품입니다.',
+  implementation: '추후 작성',
   image: getPublicAssetPath('projects/videos/SCENE5-thumbnail.png'),
   skills: ['AI Image', 'AI Video', 'CapCut'],
   video: getPublicAssetPath('projects/videos/1019.mp4'),
@@ -75,6 +81,7 @@ const projects = [
     title: 'LIVI 텀블러',
     type: 'AI Video Project',
     description: 'AI 이미지와 영상 생성 도구를 활용해 제작한 텀블러 브랜드 숏폼 광고 영상',
+    implementation: '추후 작성',
     image: getPublicAssetPath('projects/videos/livi-thumbnail.png'),
     skills: ['AI Image', 'AI Video', 'CapCut'],
     video: getPublicAssetPath('projects/videos/0903_최최종 (2).mp4'),
@@ -86,6 +93,7 @@ const projects = [
     title: '개인 웹 프로젝트',
     type: 'Personal Web Project',
     description: 'React와 CSS를 활용해 서로 다른 디자인 콘셉트로 제작한 개인 웹 프로젝트입니다.',
+    implementation: '추후 작성',
     image: getPublicAssetPath('projects/0816/PersonalWeb.png'),
     skills: ['React', 'CSS', 'JavaScript'],
     demo: getPublicAssetPath('projects/0816/0816.html'),
@@ -96,6 +104,7 @@ const projects = [
     title: 'My Archive',
     type: 'Personal Project',
     description: '책·영화·드라마를 카드형 UI로 구성하고, 카테고리 필터와 이미지 확대 기능을 구현한 반응형 웹사이트입니다.',
+    implementation: '추후 작성',
     image: getPublicAssetPath('projects/my-archive/archive-card.jpg'),
     skills: ['HTML', 'CSS', 'JavaScript'],
     demo: getPublicAssetPath('projects/my-archive/archive.html'),
@@ -277,14 +286,14 @@ function App() {
             <div className="hero__content">
               <p className="hero__greeting">안녕하세요.</p>
               <h1 className="hero__title">
-                디자인과 구현의 연결을 고민하는
+                UI를 설계하고 <br/>React로 구현하는
                 <strong>이슬아입니다.</strong>
               </h1>
 
               <p className="hero__description">
-                웹디자인부터 반응형 퍼블리싱까지,
+                웹디자이너 · 웹퍼블리셔를 목표로,
                 <br />
-                디자인을 실제 웹 화면으로 구현하는 웹디자이너 · 웹퍼블리셔를 목표로 합니다.
+                Figma로 디자인하고 React로 실제 웹 화면을 구현합니다.
               </p>
 
               <div className="hero__actions">
@@ -405,8 +414,21 @@ function App() {
 
                     {project.role && (
                       <p className="project-card__role">
-                        <strong>담당 역할</strong>
-                        <span>{project.role}</span>
+                        <strong>{project.roleLabel ?? '담당 역할'}</strong>
+                        <span>
+                          {Array.isArray(project.role)
+                            ? project.role.map((line) => (
+                              <span className="project-card__role-line" key={line}>{line}</span>
+                            ))
+                            : project.role}
+                        </span>
+                      </p>
+                    )}
+
+                    {project.implementation && (
+                      <p className="project-card__role">
+                        <strong>구현 내용</strong>
+                        <span>{project.implementation}</span>
                       </p>
                     )}
 
