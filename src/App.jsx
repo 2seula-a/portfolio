@@ -59,7 +59,8 @@ const projects = [
     title: 'Notive UI/UX Design',
     type: 'Personal Project',
     description: '학습 목표, 할 일, 학습 기록을 통합 관리하는 반응형 웹앱 UI/UX 프로젝트입니다.',
-    implementation: '추후 작성',
+    implementationLabel: '주요 디자인 작업',
+    implementation: '학습 관리 대시보드 UI 설계 및 반응형 화면 디자인, Figma 프로토타입 제작',
     image: getPublicAssetPath('projects/figma-project/notive-card.png'),
     skills: ['Figma', 'UI·UX', 'Responsive'],
     demo: getPublicAssetPath('projects/figma-project/index.html'),
@@ -71,7 +72,8 @@ const projects = [
   type: 'Contest Project',
   description:
     '담양 죽녹원의 시간과 사람의 흔적을 주제로 AI 이미지와 영상 생성 기술을 활용해 제작한 숏폼 공모전 작품입니다.',
-  implementation: '추후 작성',
+  implementationLabel: '주요 제작 내용',
+  implementation: 'AI 이미지·영상 생성 및 CapCut을 활용한 숏폼 영상 편집',
   image: getPublicAssetPath('projects/videos/SCENE5-thumbnail.png'),
   skills: ['AI Image', 'AI Video', 'CapCut'],
   video: getPublicAssetPath('projects/videos/1019.mp4'),
@@ -81,7 +83,8 @@ const projects = [
     title: 'LIVI 텀블러',
     type: 'AI Video Project',
     description: 'AI 이미지와 영상 생성 도구를 활용해 제작한 텀블러 브랜드 숏폼 광고 영상',
-    implementation: '추후 작성',
+    implementationLabel: '주요 제작 내용',
+    implementation: 'AI 이미지·영상 생성 및 브랜드 광고 영상 컷 편집',
     image: getPublicAssetPath('projects/videos/livi-thumbnail.png'),
     skills: ['AI Image', 'AI Video', 'CapCut'],
     video: getPublicAssetPath('projects/videos/0903_최최종 (2).mp4'),
@@ -93,7 +96,8 @@ const projects = [
     title: '개인 웹 프로젝트',
     type: 'Personal Web Project',
     description: 'React와 CSS를 활용해 서로 다른 디자인 콘셉트로 제작한 개인 웹 프로젝트입니다.',
-    implementation: '추후 작성',
+    implementationLabel: '주요 구현 기능',
+    implementation: 'React 기반 웹사이트 제작 및 페이지별 UI 구현, 반응형 레이아웃 적용',
     image: getPublicAssetPath('projects/0816/PersonalWeb.png'),
     skills: ['React', 'CSS', 'JavaScript'],
     demo: getPublicAssetPath('projects/0816/0816.html'),
@@ -104,7 +108,8 @@ const projects = [
     title: 'My Archive',
     type: 'Personal Project',
     description: '책·영화·드라마를 카드형 UI로 구성하고, 카테고리 필터와 이미지 확대 기능을 구현한 반응형 웹사이트입니다.',
-    implementation: '추후 작성',
+    implementationLabel: '주요 구현 기능',
+    implementation: '카테고리 필터링 및 이미지 확대 기능을 적용한 반응형 웹 아카이브 구현',
     image: getPublicAssetPath('projects/my-archive/archive-card.jpg'),
     skills: ['HTML', 'CSS', 'JavaScript'],
     demo: getPublicAssetPath('projects/my-archive/archive.html'),
@@ -176,10 +181,12 @@ function App() {
     email: '',
     message: '',
   })
+  const [formError, setFormError] = useState('')
 
   const handleFormChange = (event) => {
     const { name, value } = event.target
 
+    setFormError('')
     setFormData((previousFormData) => ({
       ...previousFormData,
       [name]: value,
@@ -188,6 +195,28 @@ function App() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
+
+    const name = formData.name.trim()
+    const email = formData.email.trim()
+    const message = formData.message.trim()
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (!name || !email || !message) {
+      setFormError('이름, 이메일, 메시지를 모두 입력해 주세요.')
+      return
+    }
+
+    if (!emailPattern.test(email)) {
+      setFormError('올바른 이메일 형식으로 입력해 주세요.')
+      return
+    }
+
+    setFormError('')
+
+    const subject = encodeURIComponent(`[포트폴리오 문의] ${name}`)
+    const body = encodeURIComponent(`이름: ${name}\n이메일: ${email}\n\n메시지:\n${message}`)
+
+    window.location.href = `mailto:seula2025@gmail.com?subject=${subject}&body=${body}`
   }
 
   const toggleMenu = () => {
@@ -427,7 +456,7 @@ function App() {
 
                     {project.implementation && (
                       <p className="project-card__role">
-                        <strong>구현 내용</strong>
+                        <strong>{project.implementationLabel}</strong>
                         <span>{project.implementation}</span>
                       </p>
                     )}
@@ -646,7 +675,7 @@ function App() {
               </address>
             </div>
 
-            <form className="contact-form" onSubmit={handleFormSubmit}>
+            <form className="contact-form" onSubmit={handleFormSubmit} noValidate>
               <div className="contact-form__field">
                 <label htmlFor="contact-name">
                   이름<span className="contact-form__required" aria-hidden="true"> *</span>
@@ -698,12 +727,14 @@ function App() {
                 />
               </div>
 
-              <button className="contact-form__button" type="submit" disabled>
-                문의 폼 준비 중
+              <button className="contact-form__button" type="submit">
+                문의 보내기
               </button>
-              <p className="contact-form__status">
-                현재 전송 기능을 준비하고 있습니다. 이메일로 연락해 주세요.
-              </p>
+              {formError && (
+                <p className="contact-form__status" role="alert">
+                  {formError}
+                </p>
+              )}
             </form>
           </div>
         </section>
@@ -716,7 +747,13 @@ function App() {
           </p>
 
           <nav className="footer__links" aria-label="연락처 링크">
-            <span aria-disabled="true">GitHub 준비 중</span>
+            <a
+              href="https://github.com/2seula-a"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
             <a href="mailto:seula2025@gmail.com">Email</a>
           </nav>
         </div>
